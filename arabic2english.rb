@@ -51,6 +51,10 @@ class Arabic2English
       if units > 0
         result << "#{Arabic2English::HYPHEN}#{Arabic2English::NUMBER_MAP[units]}"
       end
+    when @number < 1000
+      hundreds = @number / 100
+      remainder = @number % 100
+      result = "#{Arabic2English::NUMBER_MAP[hundreds]} #{Arabic2English::NUMBER_MAP[100]}"
     end
 
     result
