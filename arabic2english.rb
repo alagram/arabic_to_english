@@ -37,9 +37,10 @@ class Arabic2English
   }
 
   HYPHEN = "-"
+  CONJUNCTION = " and"
 
   def convert(num)
-    @number += num.to_i
+    @number = num.to_i
 
     case true
     when @number < 21
@@ -55,6 +56,10 @@ class Arabic2English
       hundreds = @number / 100
       remainder = @number % 100
       result = "#{Arabic2English::NUMBER_MAP[hundreds]} #{Arabic2English::NUMBER_MAP[100]}"
+
+      if remainder > 0
+        result << "#{CONJUNCTION} #{convert(remainder)}"
+      end
     end
 
     result
