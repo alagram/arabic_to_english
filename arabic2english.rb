@@ -1,4 +1,4 @@
 class Arabic2English
-  def convert
+  def convert(num)
   end
 end
