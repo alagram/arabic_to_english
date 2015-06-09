@@ -48,5 +48,9 @@ RSpec.describe Arabic2English, '#convert' do
       result = number.convert(134)
       expect(result).to eq("one hundred and thirty-four")
     end
+    it "outputs the number in words when the number is 709" do
+      number = Arabic2English.new
+      result = number.convert(709)
+      expect(result).to eq("seven hundred and nine")
   end
 end
