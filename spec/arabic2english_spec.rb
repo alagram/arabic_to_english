@@ -25,5 +25,10 @@ RSpec.describe Arabic2English, '#convert' do
       result = number.convert(21)
       expect(result).to eq("twenty-one")
     end
+    it "outputs the number in words when number is 40" do
+      number = Arabic2English.new
+      result = number.convert(40)
+      expect(result).to eq("fourty")
+    end
   end
 end
