@@ -61,6 +61,11 @@ RSpec.describe Arabic2English, '#convert' do
   end
 
   context "when number is greater than 1000" do
+    it "outputs the number in words when number is 1000" do
+      number = Arabic2English.new
+      result = number.convert(1000)
+      expect(result).to eq("one thousand")
+    end
     it "outputs the number in words when number is 1001" do
       number = Arabic2English.new
       result = number.convert(1001)
