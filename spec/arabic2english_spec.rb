@@ -89,5 +89,10 @@ RSpec.describe Arabic2English, '#convert' do
       result = number.convert(5987234500)
       expect(result).to eq("five billion, nine hundred and eighty-seven million, two hundred and thirty-four thousand, five hundred")
     end
+    it "outputs the number in words when number in trillion range" do
+      number = Arabic2English.new
+      result = number.convert(1235987234500)
+      expect(result).to eq("one trillon, two hundred and thirty-five billion, nine hundred and eighty-seven million, two hundred and thirty-four thousand, five hundred")
+    end
   end
 end
