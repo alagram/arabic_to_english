@@ -83,6 +83,13 @@ RSpec.describe Arabic2English, '#convert' do
     end
   end
 
+  context "when number is negative" do
+    it "returns a number with negative prepended" do
+      result = number.convert(-123)
+      expect(result).to eq("negative one hundred and twenty-three")
+    end
+  end
+
   context "sad path" do
     it "outputs zero when number is non zero" do
       result = number.convert("hello")
