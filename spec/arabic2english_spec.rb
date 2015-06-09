@@ -7,5 +7,10 @@ RSpec.describe Arabic2English, '#convert' do
       result = number.convert(0)
       expect(result).to eq("zero")
     end
+    it "outputs the number in words when number is 10" do
+      number = Arabic2English.new
+      result = number.convert(10)
+      expect(result).to eq("ten")
+    end
   end
 end
