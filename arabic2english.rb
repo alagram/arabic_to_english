@@ -33,11 +33,13 @@ class Arabic2English
     70 => "seventy",
     80 => "eighty",
     90 => "ninety",
-    100 => "hundred"
+    100 => "hundred",
+    1000 => "thousand"
   }
 
   HYPHEN = "-"
   CONJUNCTION = " and"
+  SEPARATOR = ", "
 
   def convert(num)
     @number = num.to_i
@@ -59,6 +61,16 @@ class Arabic2English
 
       if remainder > 0
         result << "#{CONJUNCTION} #{convert(remainder)}"
+      end
+    else
+      base = 1000 ** (Math.log(@number, 1000).floor)
+      base_unit = @number / base
+      remainder = @number % base
+      result = "#{convert(base_unit)} #{Arabic2English::NUMBER_MAP[base]}"
+
+      if remainder > 0
+        result += remainder < 100 ? "#{CONJUNCTION}" : "#{SEPARATOR}"
+        result += " #{convert(remainder)}"
       end
     end
 
