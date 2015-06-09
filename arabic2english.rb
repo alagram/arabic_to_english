@@ -43,9 +43,14 @@ class Arabic2English
   HYPHEN = "-"
   CONJUNCTION = " and"
   SEPARATOR = ","
+  NEGATIVE = "negative"
 
   def convert(num=ARGV.first)
     @number = num.to_i
+
+    if @number < 0
+      return "#{Arabic2English::NEGATIVE} #{convert(@number.abs)}"
+    end
 
     case true
     when @number < 21
