@@ -84,5 +84,10 @@ RSpec.describe Arabic2English, '#convert' do
       result = number.convert(59872345)
       expect(result).to eq("fifty-nine million, eight hundred and seventy-two thousand, three hundred and fourty-five")
     end
+    it "outputs the number in words when number in billion range" do
+      number = Arabic2English.new
+      result = number.convert(5987234500)
+      expect(result).to eq("five billion, nine hundred and eighty-seven million, two hundred and thirty-four thousand, five hundred")
+    end
   end
 end
