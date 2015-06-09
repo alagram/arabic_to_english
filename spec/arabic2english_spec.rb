@@ -77,4 +77,12 @@ RSpec.describe Arabic2English, '#convert' do
       expect(result).to eq("one hundred and twenty-three thousand, four hundred and fifty-six")
     end
   end
+
+  context "test for large numbers" do
+    it "outputs the number in words when number in million range" do
+      number = Arabic2English.new
+      result = number.convert(59872345)
+      expect(result).to eq("fifty-nine million, eight hundred and seventy-two thousand, three hundred and fourty-five")
+    end
+  end
 end
