@@ -39,20 +39,20 @@ class Arabic2English
 
   HYPHEN = "-"
   CONJUNCTION = " and"
-  SEPARATOR = ", "
+  SEPARATOR = ","
 
   def convert(num)
     @number = num.to_i
 
     case true
     when @number < 21
-      result = Arabic2English::NUMBER_MAP[num.to_i]
+      result = Arabic2English::NUMBER_MAP[@number]
     when @number < 100
       tens = (@number / 10) * 10
       units = @number % 10
       result = Arabic2English::NUMBER_MAP[tens]
       if units > 0
-        result << "#{Arabic2English::HYPHEN}#{Arabic2English::NUMBER_MAP[units]}"
+        result += "#{Arabic2English::HYPHEN}#{Arabic2English::NUMBER_MAP[units]}"
       end
     when @number < 1000
       hundreds = @number / 100
@@ -60,7 +60,7 @@ class Arabic2English
       result = "#{Arabic2English::NUMBER_MAP[hundreds]} #{Arabic2English::NUMBER_MAP[100]}"
 
       if remainder > 0
-        result << "#{CONJUNCTION} #{convert(remainder)}"
+        result += "#{CONJUNCTION} #{convert(remainder)}"
       end
     else
       base = 1000 ** (Math.log(@number, 1000).floor)
