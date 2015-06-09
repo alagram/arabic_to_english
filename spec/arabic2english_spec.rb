@@ -82,4 +82,11 @@ RSpec.describe Arabic2English, '#convert' do
       expect(result).to eq("one trillon, two hundred and thirty-five billion, nine hundred and eighty-seven million, two hundred and thirty-four thousand, five hundred")
     end
   end
+
+  context "sad path" do
+    it "outputs zero when number is non zero" do
+      result = number.convert("hello")
+      expect(result).to eq("zero")
+    end
+  end
 end
