@@ -52,5 +52,11 @@ RSpec.describe Arabic2English, '#convert' do
       number = Arabic2English.new
       result = number.convert(709)
       expect(result).to eq("seven hundred and nine")
+    end
+    it "outputs the number in words when the number is 999" do
+      number = Arabic2English.new
+      result = number.convert(999)
+      expect(result).to eq("nine hundred and ninety-nine")
+    end
   end
 end
