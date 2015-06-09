@@ -44,7 +44,7 @@ class Arabic2English
   CONJUNCTION = " and"
   SEPARATOR = ","
 
-  def convert(num)
+  def convert(num=ARGV.first)
     @number = num.to_i
 
     case true
@@ -81,3 +81,6 @@ class Arabic2English
 
   end
 end
+
+say = Arabic2English.new
+p say.convert
