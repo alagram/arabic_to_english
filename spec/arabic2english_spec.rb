@@ -71,5 +71,10 @@ RSpec.describe Arabic2English, '#convert' do
       result = number.convert(1001)
       expect(result).to eq("one thousand and one")
     end
+    it "outputs the number in words when number is 123456" do
+      number = Arabic2English.new
+      result = number.convert(123456)
+      expect(result).to eq("one hundred and twenty-three thousand, four hundred and fifty-six")
+    end
   end
 end
