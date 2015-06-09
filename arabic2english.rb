@@ -42,6 +42,8 @@ class Arabic2English
     @number += num.to_i
 
     case true
+    when @number < 21
+      result = Arabic2English::NUMBER_MAP[num.to_i]
     when @number < 100
       tens = (@number / 10) * 10
       units = @number % 10
