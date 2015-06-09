@@ -1,5 +1,9 @@
 class Arabic2English
 
+  def initialize
+    @number = 0
+  end
+
   NUMBER_MAP = {
     0 => "zero",
     1 => "one",
@@ -21,10 +25,33 @@ class Arabic2English
     17 => "seventeen",
     18 => "eighteen",
     19 => "nineteen",
-    20 => "twenty"
+    20 => "twenty",
+    30 => "thirty",
+    40 => "fourty",
+    50 => "fifty",
+    60 => "sixty",
+    70 => "seventy",
+    80 => "eighty",
+    90 => "ninety",
+    100 => "hundred"
   }
 
+  HYPHEN = "-"
+
   def convert(num)
-    Arabic2English::NUMBER_MAP[num.to_i]
+    @number += num.to_i
+
+    case true
+    when @number < 100
+      tens = (@number / 10) * 10
+      units = @number % 10
+      result = Arabic2English::NUMBER_MAP[tens]
+      if units > 0
+        result << "#{Arabic2English::HYPHEN}#{Arabic2English::NUMBER_MAP[units]}"
+      end
+    end
+
+    result
+
   end
 end
