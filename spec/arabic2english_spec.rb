@@ -18,4 +18,12 @@ RSpec.describe Arabic2English, '#convert' do
       expect(result).to eq("nineteen")
     end
   end
+
+  context "with numbers less than 100" do
+    it "outputs the number in words when number is 21" do
+      number = Arabic2English.new
+      result = number.convert(21)
+      expect(result).to eq("twenty-one")
+    end
+  end
 end
